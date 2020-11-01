@@ -34,5 +34,4 @@ public class DynamicParallelKarateTest extends AbstractTestDefinition {
         generateReport("target/surefire-reports");
         assertTrue(results.getErrorMessages(), results.getFailCount() == 0);
     }
-
 }
