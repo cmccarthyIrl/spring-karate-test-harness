@@ -1,0 +1,26 @@
+os: linux
+
+dist: trusty
+
+before_install:
+  - sudo apt-get update
+
+addons:
+  firefox: latest
+
+language: java
+
+jdk:
+  - oraclejdk8
+
+cache:
+  directories:
+    - $HOME/.m2
+
+before_script:
+  - cd karate
+
+jobs:
+  include:
+    - stage: test
+      script: mvn clean test -Dtest=ParallelKarateTest
