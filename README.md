@@ -5,14 +5,15 @@
 <tr>
   <th>Start</th>
   <td>
-    | <a href="#maven">Maven</a> | 
+    | <a href="#maven">Maven</a>  
+    | <a href="#cucumber-vs-karate">Cucumber vs Karate</a> | 
   </td>
 </tr>
 <tr>
   <th>Run</th>
   <td>
-     | <a href="#junit">Karate</a>
     | <a href="#command-line">Command Line</a>
+    | <a href="#junit-suites">Suites</a>
     | <a href="#cucumber-html-reports">Reporting</a>
     | <a href="#troubleshooting">Troubleshooting</a> |
   </td>
@@ -88,6 +89,25 @@ Note that the `mvn clean install` command runs all test Classes that follow the 
 mvn clean install
 ```
 
+# JUnit Suites
+
+By using the [JUnit Framework](https://junit.org/junit4/), we can execute multiple Modules in a single test run 
+
+> Right click the `JunitSuiteTest` class and select `Run`
+>
+```java
+@RunWith(JUnitPlatform.class)
+@SelectClasses({
+        BasicParallelKarateTest.class,
+        DynamicParallelKarateTest.class
+})
+public class JunitSuiteTest {
+
+    @Test
+    @Ignore
+    public void foo(){}
+}
+```
 
 # Configuration 
 

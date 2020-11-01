@@ -17,10 +17,7 @@ cache:
   directories:
     - $HOME/.m2
 
-before_script:
-  - cd karate
-
 jobs:
   include:
     - stage: test
-      script: mvn clean test -Dtest=ParallelKarateTest
+      script: mvn clean install
