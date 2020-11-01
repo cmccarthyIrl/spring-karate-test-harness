@@ -15,7 +15,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertTrue;
 
-public class ParallelKarateTest extends AbstractTestDefinition {
+public class DynamicParallelKarateTest extends AbstractTestDefinition {
 
     public static void generateReport(String karateOutputPath) {
         Collection<File> jsonFiles = FileUtils.listFiles(new File(karateOutputPath), new String[]{"json"}, true);
@@ -28,7 +28,7 @@ public class ParallelKarateTest extends AbstractTestDefinition {
 
     @Test
     void testParallel() {
-        Results results = Runner.path("classpath:cmccarthyirl/basic", "classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature")
+        Results results = Runner.path( "classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature")
                 .tags("~@ignore")
                 .parallel(5);
         generateReport("target/surefire-reports");
