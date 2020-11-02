@@ -1,5 +1,6 @@
 package cmccarthyirl;
 
+import org.junit.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.platform.suite.api.ExcludeEngines;
 import org.junit.platform.suite.api.IncludeEngines;
@@ -11,7 +12,10 @@ import org.junit.runner.RunWith;
         BasicParallelKarateTest.class,
         DynamicParallelKarateTest.class
 })
-@ExcludeEngines("junit-vintage")
-@IncludeEngines("junit-jupiter")
+//@ExcludeEngines("junit-vintage")
+//@IncludeEngines("junit-jupiter")
+//@IncludeEngines({"junit-jupiter","junit-vintage"})
 public class JUnitSuiteTest {
+    @Test
+    public void foo(){}
 }
