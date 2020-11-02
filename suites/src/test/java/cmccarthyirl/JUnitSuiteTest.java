@@ -10,6 +10,6 @@ import org.junit.runner.RunWith;
         BasicParallelKarateTest.class,
         DynamicParallelKarateTest.class
 })
-@ExcludeEngines("junit-vintage")
+//@ExcludeEngines("junit-vintage")
 public class JUnitSuiteTest {
 }
