@@ -28,7 +28,7 @@ public class DynamicParallelKarateTest extends AbstractTestDefinition {
 
     @Test
     void testParallel() {
-        Results results = Runner.path( "classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature")
+        Results results = Runner.path("classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature")
                 .tags("~@ignore")
                 .parallel(5);
         generateReport("target/surefire-reports");
