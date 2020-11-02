@@ -1,12 +1,14 @@
 package cmccarthyirl.basic;
 
 import cmccarthyirl.config.AbstractTestDefinition;
-import com.intuit.karate.junit5.Karate;
+import com.intuit.karate.Results;
+import com.intuit.karate.Runner;
+import org.junit.jupiter.api.Test;
 
 public class BasicKarateTest extends AbstractTestDefinition {
 
-    @Karate.Test
-    Karate BasicKarateTestAll() {
-        return Karate.run().relativeTo(getClass());
+    @Test
+    public void BasicKarateTestAll() {
+        Results results = Runner.path("classpath:cmccarthyirl").parallel(1);
     }
 }

@@ -6,6 +6,13 @@ Feature: Re-Use Existing Feature files
     And header Accept = 'application/json'
     And header Content-Type = 'application/json; charset=utf-8'
 
+    * def waitXAmount =
+    """
+    function(x) {
+        karate.log('sleeping');
+         java.lang.Thread.sleep(x);
+    }
+    """
 
   Scenario Outline: Verify we can re-use existing feature files
           #create hero
@@ -15,6 +22,7 @@ Feature: Re-Use Existing Feature files
     * def battleResponse = battle.response
       #get the result
     * def result = call read('ResultTest.feature') {"resultId": #(battleResponse.resultId) }
+    * call waitXAmount 300
     * def resultResponse = result.response
     And print resultResponse
     Then match resultResponse.result == "<result>"
