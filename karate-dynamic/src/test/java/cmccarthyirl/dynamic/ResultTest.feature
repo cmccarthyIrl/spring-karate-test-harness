@@ -17,4 +17,4 @@ Feature: Results Endpoint test
     And request { "resultId" : #(resultId) }
     When method POST
     Then status 200
-    * call waitXAmount 100
+    * call waitXAmount 200
