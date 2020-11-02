@@ -16,5 +16,4 @@ import org.springframework.boot.test.context.SpringBootTest;
 })
 @KarateOptions(tags = "~@ignore")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class JUnitSuiteTest {
-}
+public class JUnitSuiteTest { }
