@@ -1,3 +1,4 @@
+@ignore
 Feature: Results Endpoint test
 
   Background:
