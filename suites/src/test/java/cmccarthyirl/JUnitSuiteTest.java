@@ -24,7 +24,7 @@ import org.springframework.test.context.junit4.rules.SpringMethodRule;
 @KarateOptions(tags = "~@ignore")
 @RunWith(JUnitPlatform.class)
 @SelectClasses({
-        BasicParallelKarateTest.class,
+        DynamicParallel_2KarateTest.class,
         DynamicParallelKarateTest.class
 })
 //@ExcludeEngines("junit-vintage")
