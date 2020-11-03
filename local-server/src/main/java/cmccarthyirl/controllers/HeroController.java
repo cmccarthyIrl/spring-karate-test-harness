@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class HeroController {
 
-    @GetMapping(value = "/hero", consumes = "application/json", produces = "application/json")
+    @GetMapping(value = "/hero")
     public static ResponseEntity<?> getHeroList() {
         return new ResponseEntity<>(HeroList.getListOfHeros(), HttpStatus.OK);
     }
