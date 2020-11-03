@@ -14,7 +14,7 @@ public class HeroController {
         return new ResponseEntity<>(HeroList.getListOfHeros(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/hero/{id}", consumes = "application/json", produces = "application/json")
+    @GetMapping(value = "/hero/{id}")
     public static ResponseEntity<?> getHero(@PathVariable int id) {
         return new ResponseEntity<>(HeroList.getHero(id), HttpStatus.OK);
     }
@@ -25,7 +25,7 @@ public class HeroController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping(value = "/hero", consumes = "application/json", produces = "application/json")
+    @PostMapping(value = "/hero")
     public ResponseEntity<?> createUpdateHero(@RequestBody Hero newHero) {
         HeroList.createUpdateHero(newHero);
         return new ResponseEntity<>(HeroList.getHero(newHero.getId()), HttpStatus.OK);

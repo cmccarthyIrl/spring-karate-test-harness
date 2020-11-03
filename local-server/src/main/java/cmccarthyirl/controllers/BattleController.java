@@ -19,7 +19,7 @@ import java.util.Random;
 public class BattleController {
 
 
-    @PostMapping(value = "/battle", consumes = "application/json", produces = "application/json")
+    @PostMapping(value = "/battle")
     public ResponseEntity<?> calculateFight(@RequestBody BattleRequest battleRequest) {
         int battleId = new Random().nextInt((1000 - 1) + 1) + 1;
 

@@ -7,6 +7,7 @@ import org.junit.ClassRule;
 import org.junit.Rule;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.platform.suite.api.ExcludeEngines;
+import org.junit.platform.suite.api.IncludeEngines;
 import org.junit.platform.suite.api.SelectClasses;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -27,7 +28,8 @@ import org.springframework.test.context.junit4.rules.SpringMethodRule;
         BasicParallelKarateTest.class,
         DynamicParallelKarateTest.class
 })
-//@ExcludeEngines("junit-vintage")
+@ExcludeEngines("junit-vintage")
+@IncludeEngines("junit-jupiter")
 public class JUnitSuiteTest {
 
 }

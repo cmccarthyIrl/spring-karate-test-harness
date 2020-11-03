@@ -15,7 +15,7 @@ public class ResultsController {
         return new ResponseEntity<>(ResultsContainer.getResult(), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/results", consumes = "application/json", produces = "application/json")
+    @PostMapping(value = "/results")
     public ResponseEntity<?> results(@RequestBody ResultRequest resultRequest) {
         return new ResponseEntity<>(ResultsContainer.getResult(resultRequest.getResultId()), HttpStatus.OK);
     }
