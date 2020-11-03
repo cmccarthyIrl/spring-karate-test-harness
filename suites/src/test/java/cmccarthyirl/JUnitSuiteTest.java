@@ -28,8 +28,8 @@ import org.springframework.test.context.junit4.rules.SpringMethodRule;
         BasicParallelKarateTest.class,
         DynamicParallelKarateTest.class
 })
-@ExcludeEngines("junit-vintage")
-@IncludeEngines("junit-jupiter")
+//@ExcludeEngines("junit-vintage")
+@IncludeEngines({"junit-jupiter","junit-vintage"})
 public class JUnitSuiteTest {
 
 }
