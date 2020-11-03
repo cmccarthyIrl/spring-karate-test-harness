@@ -30,7 +30,7 @@ public class DynamicParallelKarateTest extends AbstractTestDefinition {
     void testParallel() {
         Results results = Runner.path("classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature")
                 .parallel(5);
-        generateReport("target/surefire-reports");
+//        generateReport("target/surefire-reports");
         assertTrue(results.getErrorMessages(), results.getFailCount() == 0);
     }
 }
