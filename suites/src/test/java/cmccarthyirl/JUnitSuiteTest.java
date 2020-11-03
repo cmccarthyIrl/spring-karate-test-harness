@@ -12,5 +12,5 @@ import org.junit.runner.RunWith;
         BasicParallelKarateTest.class,
         DynamicParallelKarateTest.class
 })
-@IncludeEngines({"junit-jupiter","junit-vintage"})
+@IncludeEngines({"junit-jupiter"})
 public class JUnitSuiteTest {}
