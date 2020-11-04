@@ -166,7 +166,7 @@
                 <version>2.22.2</version>
                 <configuration>
                     <includes>
-                        <include>JUnitSuiteTest.java</include>
+                        <include>cmccarthyirl/JUnitSuiteTest.java</include>
                     </includes>
                 </configuration>
                 <dependencies>
