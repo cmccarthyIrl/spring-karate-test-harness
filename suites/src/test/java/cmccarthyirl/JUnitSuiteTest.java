@@ -22,12 +22,12 @@ public class JUnitSuiteTest extends AbstractTestDefinition {
 
     @Karate.Test
     Karate dynamicKarateTestFeature() {
-        return Karate.run("classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature").relativeTo(getClass());
+        return Karate.run("cmccarthyirl/dynamic/ReUseFeaturesTests.feature").relativeTo(getClass());
     }
 
     @Karate.Test
     Karate basicKarateTestAll() {
-        return Karate.run("classpath:cmccarthyirl/basic").relativeTo(getClass());
+        return Karate.run("cmccarthyirl/basic").relativeTo(getClass());
     }
 
 //    @Test
