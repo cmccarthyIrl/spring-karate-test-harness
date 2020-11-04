@@ -2,19 +2,14 @@ package cmccarthyirl;
 
 import cmccarthyirl.config.AbstractTestDefinition;
 import com.intuit.karate.KarateOptions;
-import com.intuit.karate.Results;
-import com.intuit.karate.Runner;
 import com.intuit.karate.junit5.Karate;
-import org.junit.Assert;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+//import org.junit.jupiter.api.Test;
+import org.junit.BeforeClass;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.platform.suite.api.*;
 import org.junit.runner.RunWith;
-import org.junit.runners.Suite;
 
 @KarateOptions(tags = "~@ignore")
-@RunWith(JUnitPlatform.class)
 @SuiteDisplayName("JUnit Platform Suite Demo")
 //@SelectPackages({"cmccarthyirl.basic","cmccarthyirl.dynamic"})
 //@IncludeEngines({"junit-jupiter"})
@@ -23,8 +18,20 @@ import org.junit.runners.Suite;
 //@ExcludeEngines({"junit-jupiter"})
 public class JUnitSuiteTest extends AbstractTestDefinition {
 
-    @Test
-    public void DynamicKarateTestAll() {
-        Results results = Runner.path("classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature").parallel(1);
+
+    @Karate.Test
+    Karate dynamicKarateTestFeature() {
+        return Karate.run("classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature").relativeTo(getClass());
     }
+
+    @Karate.Test
+    Karate basicKarateTestAll() {
+        return Karate.run("classpath:cmccarthyirl/basic").relativeTo(getClass());
+    }
+
+//    @Test
+//    public void DynamicKarateTestAll() {
+//
+//        Results results = Runner.path("classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature").parallel(1);
+//    }
 }
