@@ -23,5 +23,5 @@ before_script:
 jobs:
   include:
     - stage: test
-      script: mvn clean test -Dtest=JUnitSuiteTest -f
+      script: mvn clean test -Dtest=JUnitSuiteTest
 #      script: mvn clean install -f
