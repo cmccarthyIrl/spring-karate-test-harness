@@ -3,6 +3,7 @@ package cmccarthyirl;
 import cmccarthyirl.config.AbstractTestDefinition;
 import com.intuit.karate.Results;
 import com.intuit.karate.Runner;
+import com.intuit.karate.junit5.Karate;
 import net.masterthought.cucumber.Configuration;
 import net.masterthought.cucumber.ReportBuilder;
 import org.apache.commons.io.FileUtils;
@@ -26,12 +27,17 @@ public class BasicParallelKarateTest extends AbstractTestDefinition {
         reportBuilder.generateReports();
     }
 
-    @Test
-    void testParallel() {
-        Results results = Runner.path("classpath:cmccarthyirl/basic")
-                .tags("~@ignore")
-                .parallel(5);
-        generateReport("target/surefire-reports");
-        assertTrue(results.getErrorMessages(), results.getFailCount() == 0);
+//    @Test
+//    void testParallel() {
+//        Results results = Runner.path("classpath:cmccarthyirl/basic")
+//                .tags("~@ignore")
+//                .parallel(5);
+//        generateReport("target/surefire-reports");
+//        assertTrue(results.getErrorMessages(), results.getFailCount() == 0);
+//    }
+
+    @Karate.Test
+    Karate basicKarateTestAll() {
+        return Karate.run("classpath:cmccarthyirl/basic").relativeTo(getClass());
     }
 }
