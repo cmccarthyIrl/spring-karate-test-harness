@@ -17,11 +17,11 @@ cache:
   directories:
     - $HOME/.m2
 
-before_script:
-  - cd suites
+#before_script:
+#  - cd suites
 
 jobs:
   include:
     - stage: test
-      script: mvn clean test -Dtest=JUnitSuiteTest
-#      script: mvn clean install
+#      script: mvn clean test -Dtest=JUnitSuiteTest
+      script: mvn clean install
