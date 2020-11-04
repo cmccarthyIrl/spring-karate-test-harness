@@ -10,6 +10,7 @@ import org.junit.platform.suite.api.*;
 import org.junit.runner.RunWith;
 
 @KarateOptions(tags = "~@ignore")
+@RunWith(JUnitPlatform.class)
 @SuiteDisplayName("JUnit Platform Suite Demo")
 //@SelectPackages({"cmccarthyirl.basic","cmccarthyirl.dynamic"})
 //@IncludeEngines({"junit-jupiter"})
