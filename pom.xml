@@ -159,10 +159,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
                 <configuration>
-                    <includes>
-                        <include>JUnitSuiteTest.java</include>
-                    </includes>
-                    <testFailureIgnore>true</testFailureIgnore>
+<!--                    <includes>-->
+<!--                        <include>JUnitSuiteTest.java</include>-->
+<!--                    </includes>-->
+<!--                    <testFailureIgnore>true</testFailureIgnore>-->
                 </configuration>
                 <dependencies>
                     <dependency>

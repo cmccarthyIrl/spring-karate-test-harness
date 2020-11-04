@@ -31,7 +31,7 @@ public class BasicParallelKarateTest extends AbstractTestDefinition {
         Results results = Runner.path("classpath:cmccarthyirl/basic")
                 .tags("~@ignore")
                 .parallel(5);
-//        generateReport("target/surefire-reports");
+        generateReport("target/surefire-reports");
         assertTrue(results.getErrorMessages(), results.getFailCount() == 0);
     }
 }

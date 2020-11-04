@@ -8,6 +8,6 @@ import org.springframework.context.annotation.PropertySource;
 @ComponentScan({
         "cmccarthyirl"
 })
-@PropertySource("classpath:/application.properties")
+@PropertySource("application.properties")
 public class KarateContextConfiguration {
 }
