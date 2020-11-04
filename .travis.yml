@@ -24,4 +24,4 @@ jobs:
   include:
     - stage: test
 #      script: mvn clean test -Dtest=JUnitSuiteTest
-      script: mvn clean install
+      script: mvn clean install -f
