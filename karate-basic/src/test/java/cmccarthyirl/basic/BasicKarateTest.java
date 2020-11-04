@@ -15,6 +15,6 @@ public class BasicKarateTest extends AbstractTestDefinition {
 
     @Karate.Test
     Karate basicKarateTestAll() {
-        return Karate.run("classpath:cmccarthyirl/basic/").relativeTo(getClass());
+        return Karate.run().relativeTo(getClass());
     }
 }

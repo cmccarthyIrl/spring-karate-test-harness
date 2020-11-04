@@ -14,7 +14,7 @@ public class DynamicKarateTest extends AbstractTestDefinition {
 //    }
 
     @Karate.Test
-    Karate basicKarateTestAll() {
-        return Karate.run("classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature").relativeTo(getClass());
+    Karate dynamicKarateTestAll() {
+        return Karate.run("cmccarthyirl/dynamic/ReUseFeaturesTests.feature").relativeTo(getClass());
     }
 }
