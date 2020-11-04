@@ -39,9 +39,9 @@ import org.junit.runners.Suite;
 //})
 @SuiteDisplayName("JUnit Platform Suite Demo")
 @SelectPackages({"cmccarthyirl.basic","cmccarthyirl.dynamic"})
-//@ExcludeEngines({"junit-jupiter"})
+@IncludeEngines({"junit-jupiter"})
+@ExcludeEngines({"junit-vintage"})
 public class JUnitSuiteTest extends AbstractTestDefinition {
-
 
     @Test
     public void DynamicKarateTestAll() {
