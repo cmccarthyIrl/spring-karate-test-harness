@@ -38,7 +38,7 @@ import org.junit.runners.Suite;
 //        DynamicParallelKarateTest.class
 //})
 @SuiteDisplayName("JUnit Platform Suite Demo")
-//@SelectPackages({"cmccarthyirl.basic","cmccarthyirl.dynamic"})
+@SelectPackages({"cmccarthyirl.basic","cmccarthyirl.dynamic"})
 //@IncludeEngines({"junit-jupiter"})
 //@ExcludeEngines({"junit-vintage"})
 //@IncludeEngines({"junit-vintage"})
