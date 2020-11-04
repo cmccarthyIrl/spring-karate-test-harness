@@ -16,17 +16,17 @@ import org.junit.runner.RunWith;
 @RunWith(JUnitPlatform.class)
 //@SuiteDisplayName("JUnit Platform Suite Demo")
 //@SelectPackages({"cmccarthyirl.basic","cmccarthyirl.dynamic"})
-//@SelectClasses({DynamicKarateTest.class, BasicKarateTest.class})
+@SelectClasses({DynamicKarateTest.class, BasicKarateTest.class})
 //@IncludeEngines({"junit-jupiter"})
 @ExcludeEngines({"junit-vintage"})
 @IncludeEngines({"junit-jupiter"})
 //@ExcludeEngines({"junit-jupiter"})
 public class JUnitSuiteTest extends AbstractTestDefinition {
 
-    @Karate.Test
-    Karate dynamicKarateTestFeature() {
-        return Karate.run("classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature").relativeTo(getClass());
-    }
+//    @Karate.Test
+//    Karate dynamicKarateTestFeature() {
+//        return Karate.run("classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature").relativeTo(getClass());
+//    }
 //
 //    @Karate.Test
 //    Karate basicKarateTestAll() {
