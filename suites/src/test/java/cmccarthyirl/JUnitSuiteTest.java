@@ -10,16 +10,15 @@ import org.junit.platform.runner.JUnitPlatform;
 import org.junit.platform.suite.api.*;
 import org.junit.runner.RunWith;
 
-@KarateOptions(tags = "~@ignore")
+//@KarateOptions(tags = "~@ignore")
 @RunWith(JUnitPlatform.class)
-@SuiteDisplayName("JUnit Platform Suite Demo")
-//@SelectPackages({"cmccarthyirl.basic","cmccarthyirl.dynamic"})
-@IncludeEngines({"junit-jupiter","junit-vintage"})
+//@SuiteDisplayName("JUnit Platform Suite Demo")
+@SelectPackages({"cmccarthyirl.basic","cmccarthyirl.dynamic"})
+@IncludeEngines({"junit-jupiter"})
 //@ExcludeEngines({"junit-vintage"})
 //@IncludeEngines({"junit-vintage"})
 //@ExcludeEngines({"junit-jupiter"})
 public class JUnitSuiteTest extends AbstractTestDefinition {
-
 
     @Karate.Test
     Karate dynamicKarateTestFeature() {
@@ -28,7 +27,7 @@ public class JUnitSuiteTest extends AbstractTestDefinition {
 
     @Karate.Test
     Karate basicKarateTestAll() {
-        return Karate.run("classpath:cmccarthyirl/basic");
+        return Karate.run("classpath:cmccarthyirl/basic/");
     }
 
 //    @Test
