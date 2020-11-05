@@ -16,21 +16,22 @@ public class DynamicKarateTest extends AbstractTestDefinition {
 //        Results results = Runner.path("classpath:c").parallel(1);
 //    }        return Karate.run(Objects.requireNonNull(getClass().getClassLoader().getResource("cmccarthyirl/basic")).getPath());
 
-    @Karate.Test
-    Karate dynamicKarateTestAll() throws IOException {
-//        return Karate.run("classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature").relativeTo(getClass());
-        return Karate.run(Objects.requireNonNull(getClass().getClassLoader().getResource("cmccarthyirl/dynamic/ReUseFeaturesTests.feature")).getFile());
-    }
+//    @Karate.Test
+//    Karate dynamicKarateTestAll()  {
+////        return Karate.run("classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature").relativeTo(getClass());
+//        return Karate.run(Objects.requireNonNull(getClass().getClassLoader().getResource("cmccarthyirl/dynamic/ReUseFeaturesTests.feature")).getFile())
+//                .tags("~@ignore");
+//    }
+//
+//    @Karate.Test
+//    Karate dynamicKarateTestAll2()  {
+////        return Karate.run("classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature").relativeTo(getClass());
+//        return Karate.run(Objects.requireNonNull(getClass().getClassLoader().getResource("cmccarthyirl/dynamic/ReUseFeaturesTests.feature")).getPath());
+//    }
 
     @Karate.Test
-    Karate dynamicKarateTestAll2() throws IOException {
+    Karate dynamicKarateTestAll3()  {
 //        return Karate.run("classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature").relativeTo(getClass());
-        return Karate.run(Objects.requireNonNull(getClass().getClassLoader().getResource("cmccarthyirl/dynamic/ReUseFeaturesTests.feature")).getPath());
-    }
-
-    @Karate.Test
-    Karate dynamicKarateTestAll3() throws IOException {
-//        return Karate.run("classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature").relativeTo(getClass());
-        return Karate.run(Objects.requireNonNull(getClass().getClassLoader().getResource("cmccarthyirl/dynamic")).getPath());
+        return Karate.run(Objects.requireNonNull(getClass().getClassLoader().getResource("cmccarthyirl/dynamic")).getPath()).tags("~@ignore");
     }
 }
