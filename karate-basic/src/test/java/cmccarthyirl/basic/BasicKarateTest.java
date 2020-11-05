@@ -6,6 +6,8 @@ import com.intuit.karate.Runner;
 import com.intuit.karate.junit5.Karate;
 import org.junit.jupiter.api.Test;
 
+import java.util.Objects;
+
 public class BasicKarateTest extends AbstractTestDefinition {
 
 //    @Test
@@ -15,6 +17,6 @@ public class BasicKarateTest extends AbstractTestDefinition {
 
     @Karate.Test
     Karate basicKarateTestAll() {
-        return Karate.run().relativeTo(getClass());
+        return Karate.run(Objects.requireNonNull(getClass().getClassLoader().getResource("cmccarthyirl/basic")).getPath());
     }
 }

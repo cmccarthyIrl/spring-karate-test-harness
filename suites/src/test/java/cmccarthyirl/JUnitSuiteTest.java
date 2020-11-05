@@ -19,8 +19,8 @@ import org.junit.runner.RunWith;
 //@SelectClasses({DynamicKarateTest.class, BasicKarateTest.class})
 @SelectClasses({DynamicKarateTest.class, BasicKarateTest.class})
 //@IncludeEngines({"junit-jupiter"})
-@ExcludeEngines({"junit-vintage"})
-@IncludeEngines({"junit-jupiter"})
+//@ExcludeEngines({"junit-vintage"})
+//@IncludeEngines({"junit-jupiter"})
 //@ExcludeEngines({"junit-jupiter"})
 public class JUnitSuiteTest extends AbstractTestDefinition {
 
