@@ -19,6 +19,6 @@ public class DynamicKarateTest extends AbstractTestDefinition {
     @Karate.Test
     Karate dynamicKarateTestAll() throws IOException {
 //        return Karate.run("classpath:cmccarthyirl/dynamic/ReUseFeaturesTests.feature").relativeTo(getClass());
-        return Karate.run(Objects.requireNonNull(getClass().getClassLoader().getResource("cmccarthyirl/dynamic/ReUseFeaturesTests.feature")).getPath()).relativeTo(getClass());
+        return Karate.run(Objects.requireNonNull(getClass().getClassLoader().getResource("cmccarthyirl/dynamic/ReUseFeaturesTests.feature")).getPath());
     }
 }
