@@ -1,6 +1,4 @@
 
-[![Build Status](https://travis-ci.com/cmccarthyIrl/spring-karate-test-harness.svg?branch=master)](https://travis-ci.com/cmccarthyIrl/spring-karate-test-harness)
-
 <table> 
 <tr>
   <th>Start</th>
