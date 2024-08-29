@@ -5,7 +5,7 @@ import com.intuit.karate.junit5.Karate;
 
 import java.util.Objects;
 
-public class BasicKarateTest extends AbstractTestDefinition {
+public class BasicParallelKarateTest extends AbstractTestDefinition {
 
     @Karate.Test
     Karate basicKarateTestAll() {

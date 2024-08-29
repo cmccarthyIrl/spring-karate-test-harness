@@ -8,6 +8,6 @@ Feature: Hero Tests
 
   Scenario: Verify the user can create a Hero
     Given path '/hero'
-    And request {"id": #(id),"name": '#(name)',"age": #(age),"weapon": '#(weapon)',"specialPower": '#(specialPower)'}
+    And request {"id": '#(id)',"name": '#(name)',"age": '#(age)',"weapon": '#(weapon)',"specialPower": '#(specialPower)'}
     When method POST
     Then status 200

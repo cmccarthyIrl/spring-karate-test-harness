@@ -9,6 +9,6 @@ Feature: Results Endpoint test
 
   Scenario: Verify the user can retrieve all the results
     Given path '/results'
-    And request { "resultId" : #(resultId) }
+    And request { "resultId" : '#(resultId)' }
     When method POST
     Then status 200

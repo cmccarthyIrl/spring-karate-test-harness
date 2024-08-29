@@ -1,208 +1,188 @@
+# Karate Test Framework
 
-<table> 
-<tr>
-  <th>Start</th>
-  <td>
-    | <a href="#maven">Maven</a>  
-    | <a href="#cucumber-vs-karate">Cucumber vs Karate</a> | 
-  </td>
-</tr>
-<tr>
-  <th>Run</th>
-  <td>
-    | <a href="#command-line">Command Line</a>
-    | <a href="#junit-suites">Suites</a>
-    | <a href="#cucumber-html-reports">Reporting</a>
-    | <a href="#troubleshooting">Troubleshooting</a> |
-  </td>
-</tr>
-<tr>
-  <th>Advanced</th>
-  <td>
-    | <a href="#contributing">Contributing</a> |
-    </td>
-</tr>
-</table>
-    
-# Maven
+## Overview
 
-The Framework uses [Spring Boot Test](https://spring.io/guides/gs/testing-web/) and  [Karate](https://cucumber.io/), client implementations.
+The Hero Battle Application is a Spring Boot project designed to manage and simulate battles between heroes. At its core, it provides a comprehensive RESTful API for handling hero data and battle results. A key feature of this application is its robust karate test framework, which ensures the reliability and accuracy of the API by automating and streamlining the testing process. This framework supports various testing scenarios, including creating, updating, retrieving, and deleting heroes and battle results, making it an essential tool for validating the application’s functionality.
+## Table of Contents
 
-Spring `<dependencies>`:
+- [Getting Started](#getting-started)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Hero Endpoints](#hero-endpoints)
+  - [Battle Endpoints](#battle-endpoints)
+  - [Results Endpoints](#results-endpoints)
+- [Testing](#testing)
+- [Configuration](#configuration)
+- [License](#license)
 
-```xml
-<dependecies>
-    ...
-        <dependency>
-            <groupId>org.springframework.amqp</groupId>
-            <artifactId>spring-rabbit</artifactId>
-            <version>${spring-rabbit.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-        </dependency>
-    ...
-</dependecies>
-```
-Karate `<dependencies>`:
-```xml
-<dependecies>
-    ...
-    <dependency>
-            <groupId>com.intuit.karate</groupId>
-            <artifactId>karate-apache</artifactId>
-            <version>${karate.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.intuit.karate</groupId>
-            <artifactId>karate-junit5</artifactId>
-            <version>${karate.version}</version>
-            <scope>test</scope>
-        </dependency>
-    ...
-</dependecies>
-```
+## Getting Started
 
-# Command Line 
+These instructions will help you get a copy of the project up and running on your local machine.
 
-Normally you will use your IDE to run a `*.feature` file directly or via the `*Test.java` class. With the `Test` class, we can run tests from the command-line as well.
+### Prerequisites
 
-Note that the `mvn test` command only runs test classes that follow the `*Test.java` naming convention. 
+- JDK 17
+- Maven
+- Spring Boot
+- An IDE (like IntelliJ IDEA, Eclipse, or VSCode) (optional but recommended)
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/cmccarthyIrl/spring-karate-test-harness.git
+   cd spring-karate-test-harness
+   ```
+
+2. **Build the project**
+
+   Use Maven to build the project:
+
+   ```bash
+   mvn clean install
+   ```
+
+3. **Run the application**
+
+   You can run the application using Maven:
+
+   ```bash
+   mvn spring-boot:run
+   ```
+
+   Or by running the main class directly from your IDE.
+
+## Usage
+
+The application exposes several RESTful endpoints. Below are the available endpoints and their usage.
+
+### Hero Endpoints
+
+- **List All Heroes**
+
+  ```http
+  GET /hero
+  ```
+
+  Returns a list of all heroes.
+
+- **Get Hero by ID**
+
+  ```http
+  GET /hero/{id}
+  ```
+
+  Retrieves details of a hero by their ID.
+
+- **Create or Update Hero**
+
+  ```http
+  POST /hero
+  ```
+
+  Request body should include the hero details in JSON format. Creates a new hero or updates an existing hero.
+
+  Example Request Body:
+
+  ```json
+  {
+    "id": 5,
+    "name": "New Hero",
+    "age": 30,
+    "weapon": "Magic Wand",
+    "specialPower": "Teleportation"
+  }
+  ```
+
+- **Delete Hero by ID**
+
+  ```http
+  DELETE /hero/{id}
+  ```
+
+  Deletes a hero by their ID.
+
+### Battle Endpoints
+
+- **Simulate a Battle**
+
+  ```http
+  POST /battle
+  ```
+
+  Simulates a battle between two heroes. Request body should include IDs of the heroes involved.
+
+  Example Request Body:
+
+  ```json
+  {
+    "firstHeroToFight": 1,
+    "secondHeroToFight": 2
+  }
+  ```
+
+  Returns a battle report with a unique battle ID.
+
+### Results Endpoints
+
+- **Get All Results**
+
+  ```http
+  GET /results
+  ```
+
+  Retrieves a list of all battle results.
+
+- **Get Result by ID**
+
+  ```http
+  POST /results
+  ```
+
+  Request body should include the result ID to retrieve specific battle results.
+
+  Example Request Body:
+
+  ```json
+  {
+    "resultId": 123
+  }
+  ```
+
+- **Delete All Results**
+
+  ```http
+  DELETE /results
+  ```
+
+  Clears all battle results from the system.
+
+## Testing
+
+To run the tests, use Maven:
+
+Note that the `mvn test` command only runs test classes that follow the `*Test.java` naming convention.
 
 You can run a single test or a suite or tests like so :
 
-```
+```bash
 mvn test -Dtest=HeroKarateTest
 ```
 
 Note that the `mvn clean install` command runs all test Classes that follow the `*Test.java` naming convention
 
-```
+```bash
 mvn clean install
 ```
 
-# JUnit Suites
+Make sure to check and ensure that your tests are configured correctly and all dependencies are resolved.
 
-By using the [JUnit Framework](https://junit.org/junit4/), we can execute multiple Modules in a single test run 
+## Configuration
 
-> Right click the `JunitSuiteTest` class and select `Run`
->
-```java
-@RunWith(JUnitPlatform.class)
-@SelectClasses({
-        BasicParallelKarateTest.class,
-        DynamicParallelKarateTest.class
-})
-public class JunitSuiteTest {
+The application uses Spring Boot's auto-configuration and embedded server setup. You can configure application settings in `src/main/resources/application.properties` or `application.yml`.
 
-    @Test
-    @Ignore
-    public void foo(){}
-}
-```
+## License
 
-# Configuration 
-
-The `AbstractTestDefinition` class is responsible for specifying each Step class as `@SpringBootTest` and its `@ContextConfiguration`
-
-> All the `Step Classes` in the Framework should `extend` the `AbstractTestDefinition` class
-
-```java
-@ContextConfiguration(classes = {KarateContextConfiguration.class})
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-public class AbstractTestDefinition { }
-```
-
-The `KarateContextConfiguration` class is responsible for specifying the Spring `@Configuration`, modules to scan, properties to use etc
-
-```java
-@Configuration
-@ComponentScan({
-        "cmccarthyirl"
-})
-@PropertySource("classpath:/application.properties")
-public class KarateContextConfiguration {
-}
-
-```
-
-# Environment Switching
-
-There is only one thing you need to do to switch the environment - which is to set `<activeByDefault>` property in the Master POM.
-
-> By default, the value of `spring.profiles.active` is defined in the `application.properties` file which inherits its value from the Master POM property `<activeByDefault>`
-
-```xml
- <profiles>
-        ...
-        <profile>
-            <id>prod</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <activatedProperties>prod</activatedProperties>
-            </properties>
-        </profile>
-        ...
-</profiles>
-```
-
-You can then specify the profile to use when running Maven from the command line like so:
-```
-mvn clean install -P dev
-```
-
-Below is an example of the `application.properties` file.
-
-```properties
-spring.profiles.active=@activatedProperties@
-```
-
-# Cucumber HTML Reports
-
-The Framework uses [Cucumber HTML Reports]()
-
-<img src="https://github.com/cmccarthyIrl/spring-karate-test-harness/blob/master/common/src/main/resources/demo/reporter.png" height="400px"/>
-
-
-# Cucumber vs Karate
-> Karate was based on Cucumber-JVM until version 0.8.0 but the parser and engine were [re-written from scratch](https://github.com/intuit/karate/issues/444) in 0.9.0 onwards. So we use the same [Gherkin](https://docs.cucumber.io/gherkin/) syntax - but the similarity ends there.
-
-If you are familiar with Cucumber (JVM), you may be wondering if you need to write [step-definitions](https://docs.cucumber.io/gherkin/step-organization/). The answer is **no**.
-
-Karate's approach is that all the step-definitions you need in order to work with HTTP, JSON and XML have been already implemented. And since you can easily extend Karate [using JavaScript](#call), there is no need to compile Java code any more.
-
-The following table summarizes some key differences between Cucumber and Karate.
-
-:white_small_square: | Cucumber | Karate
--------------------- | -------- | ------
-**Step Definitions Built-In** | **No**. You need to keep implementing them as your functionality grows. [This can get very tedious](https://thepracticaldeveloper.com/2017/08/03/microservices-end-to-end-tests-with-cucumber-and-spring-boot/), especially since for [dependency-injection](https://docs.cucumber.io/cucumber/state/#dependency-injection), you are [on your own](http://angiejones.tech/rest-assured-with-cucumber-using-bdd-for-web-services-automation?refreshed=y#comment-40). | :white_check_mark: **Yes**. No extra Java code needed.
-**Single Layer of Code To Maintain** | **No**. There are 2 Layers. The [Gherkin](https://docs.cucumber.io/gherkin/reference/) spec or `*.feature` files make up one layer, and you will also have the corresponding Java step-definitions. | :white_check_mark: **Yes**. Only 1 layer of Karate-script (based on Gherkin).
-**Readable Specification** | **Yes**. Cucumber will read like natural language _if_ you implement the step-definitions right. | :x: **No**. Although Karate is simple, and a [true DSL](https://ayende.com/blog/2984/dsl-vs-fluent-interface-compare-contrast), it is ultimately a [mini-programming language](https://hackernoon.com/yes-karate-is-not-true-bdd-698bf4a9be39). But it is [perfect for testing web-services](https://stackoverflow.com/a/47799207/143475) at the level of HTTP requests and responses.
-**Re-Use Feature Files** | **No**. Cucumber does not support being able to call (and thus re-use) other `*.feature` files from a test-script. | :white_check_mark: [**Yes**](#calling-other-feature-files).
-**Dynamic Data-Driven Testing** | **No**. Cucumber's [`Scenario Outline`](#the-cucumber-way) expects the `Examples` to contain a fixed set of rows. | :white_check_mark: **Yes**. Karate's support for calling other `*.feature` files allows you to use a [JSON array as the data-source](#data-driven-features) and you can [use JSON](https://twitter.com/KarateDSL/status/1051433711814627329) or [even CSV](#csv-files) directly in a data-driven `Scenario Outline`.
-**Parallel Execution** | **No**. There are some challenges (especially with reporting) and you can find various discussions and third-party projects on the web that attempt to close this gap: [1](https://github.com/cucumber/cucumber-jvm/issues/630) [2](https://opencredo.com/test-automation-concepts-parallel-test-execution/) [3](http://stackoverflow.com/questions/41034116/how-to-execute-cucumber-feature-file-parallel) [4](https://github.com/DisneyStudios/cucumber-slices-maven-plugin) [5](https://github.com/temyers/cucumber-jvm-parallel-plugin) [6](https://github.com/trivago/cucable-plugin) [7](https://github.com/eu-evops/cucumber-runner-maven-plugin) [8](https://automationrhapsody.com/running-cucumber-tests-in-parallel/) | :white_check_mark: [**Yes**](#parallel-execution). Karate runs even `Scenario`-s in parallel, not just `Feature`-s.
-**Run 'Set-Up' Routines Only Once** | **No**. Cucumber has a limitation where `Background` steps are re-run for every `Scenario` and worse - even for every `Examples` row within a `Scenario Outline`. This has been a [highly-requested open issue](https://github.com/cucumber/cucumber-jvm/issues/515) for a *long* time. | :white_check_mark: [**Yes**](#hooks).
-**Embedded JavaScript Engine** | **No**. And you have to roll your own approach to environment-specific configuration and worry about [dependency-injection](https://docs.cucumber.io/cucumber/state/#dependency-injection). | :white_check_mark: **Yes**. Easily define all environments in a [single file](#configuration) and share variables across all scenarios. Full script-ability via [JS](#calling-javascript-functions) or [Java interop](#java-interop).
-
-# Troubleshooting
-
-- Execute the following commands to resolve any dependency issues
-    1. `cd ~/install directory path/spring-karate-test-harness`
-    2. `mvn clean install -DskipTests`
-    3. `execute the Karate test`
-    
-# Contributing
-
-Spotted a mistake? Questions? Suggestions?
-
-[Open an Issue](https://github.com/cmccarthyIrl/spring-cucumber-test-harness/issues)
-
-
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

@@ -8,6 +8,6 @@ Feature: Battle Endpoint Tests
 
   Scenario: Verify the user can create a battle
     Given path '/battle'
-    And request { "firstHeroToFight" : #(firstHeroToFight), "secondHeroToFight" : #(secondHeroToFight) }
+    And request { "firstHeroToFight" : '#(firstHeroToFight)', "secondHeroToFight" : '#(secondHeroToFight)' }
     When method POST
     Then status 200

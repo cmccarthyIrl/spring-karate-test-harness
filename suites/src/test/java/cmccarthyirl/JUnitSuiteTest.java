@@ -1,6 +1,8 @@
 package cmccarthyirl;
 
-import cmccarthyirl.config.AbstractTestDefinition;
+import cmccarthyirl.basic.BasicParallelKarateTest;
+import cmccarthyirl.basic.config.AbstractTestDefinition;
+import cmccarthyirl.dynamic.DynamicParallelKarateTest;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.platform.suite.api.ExcludeEngines;
 import org.junit.platform.suite.api.SelectClasses;
