@@ -9,6 +9,6 @@ public class DynamicKarateTest extends AbstractTestDefinition {
 
     @Karate.Test
     Karate dynamicKarateTest() {
-        return (Karate) Karate.run(Objects.requireNonNull(getClass().getClassLoader().getResource("cmccarthyirl/dynamic")).getPath()).tags("~@ignore");
+        return Karate.run(Objects.requireNonNull(getClass().getClassLoader().getResource("cmccarthyirl/dynamic")).getPath()).tags("~@ignore");
     }
 }

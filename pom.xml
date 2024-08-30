@@ -20,7 +20,7 @@
     <properties>
         <java.version>17</java.version>
         <karate.version>1.5.0</karate.version>
-        <junit.jupiter.version>5.3.2</junit.jupiter.version>
+        <junit.jupiter.version>5.11.0</junit.jupiter.version>
         <junit.platform.version>1.11.0</junit.platform.version>
         <cucumber.reporting.version>5.8.2</cucumber.reporting.version>
         <maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
@@ -52,7 +52,6 @@
         <module>local-server</module>
         <module>karate-basic</module>
         <module>karate-dynamic</module>
-        <module>suites</module>
         <module>karate-robot</module>
     </modules>
 
@@ -88,19 +87,11 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>5.11.0</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-suite</artifactId>
             <version>${junit.platform.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-runner</artifactId>
-            <version>${junit.platform.version}</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -140,15 +131,29 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.plugin.version}</version>
+                <configuration>
+                    <properties>
+                        <configurationParameters>
+                            junit.jupiter.conditions.deactivate = *
+                            junit.jupiter.extensions.autodetection.enabled = true
+                            junit.jupiter.testinstance.lifecycle.default = per_class
+                            junit.jupiter.execution.parallel.enabled = true
+                        </configurationParameters>
+                    </properties>
+<!--                    <includes>-->
+<!--                        <include>**/*Test.java</include>-->
+<!--                    </includes>-->
+                    <useModulePath>false</useModulePath>
+                </configuration>
                 <dependencies>
                     <dependency>
                         <groupId>org.junit.jupiter</groupId>
                         <artifactId>junit-jupiter-engine</artifactId>
-                        <version>${junit.jupiter.version}</version>
+                        <version>5.10.3</version>
                     </dependency>
                     <dependency>
                         <groupId>org.junit.platform</groupId>
-                        <artifactId>junit-platform-suite-engine</artifactId>
+                        <artifactId>junit-platform-suite</artifactId>
                         <version>${junit.platform.version}</version>
                     </dependency>
                 </dependencies>
