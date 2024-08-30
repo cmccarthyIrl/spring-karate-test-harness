@@ -1,5 +1,5 @@
 # Karate Test Framework
-
+[![Karate Tests - SpringBoot APP](https://github.com/cmccarthyIrl/spring-karate-test-harness/actions/workflows/test.yml/badge.svg)](https://github.com/cmccarthyIrl/spring-karate-test-harness/actions/workflows/test.yml)
 ## Overview
 
 The Hero Battle Application is a Spring Boot project designed to manage and simulate battles between heroes. At its core, it provides a comprehensive RESTful API for handling hero data and battle results. A key feature of this application is its robust karate test framework, which ensures the reliability and accuracy of the API by automating and streamlining the testing process. This framework supports various testing scenarios, including creating, updating, retrieving, and deleting heroes and battle results, making it an essential tool for validating the application’s functionality.
