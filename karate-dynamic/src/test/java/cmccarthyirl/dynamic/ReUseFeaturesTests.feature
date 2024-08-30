@@ -1,4 +1,3 @@
-@parallel=false
 Feature: Re-Use Existing Feature Files
 
   Background:
