@@ -1,8 +1,8 @@
-name: UI and API Tests
+name: Karate Tests - SpringBoot APP
 
 on:
   push:
-    branches: [ "feature/JDK17" ]
+    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
