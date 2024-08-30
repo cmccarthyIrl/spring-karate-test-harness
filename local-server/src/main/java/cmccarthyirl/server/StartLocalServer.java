@@ -2,11 +2,11 @@ package cmccarthyirl.server;
 
 import cmccarthyirl.server.models.Hero;
 import cmccarthyirl.server.storage.HeroList;
+import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import jakarta.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 

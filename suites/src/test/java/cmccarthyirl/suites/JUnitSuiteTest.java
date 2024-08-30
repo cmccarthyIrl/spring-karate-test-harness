@@ -1,4 +1,4 @@
-package cmccarthyirl;
+package cmccarthyirl.suites;
 
 import cmccarthyirl.basic.BasicParallelKarateTest;
 import cmccarthyirl.basic.config.AbstractTestDefinition;

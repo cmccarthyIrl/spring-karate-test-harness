@@ -1,7 +1,7 @@
 package cmccarthyirl.server.controllers;
 
-import cmccarthyirl.server.models.ResultRequest;
 import cmccarthyirl.server.models.BattleResultsLog;
+import cmccarthyirl.server.models.ResultRequest;
 import cmccarthyirl.server.storage.ResultsContainer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

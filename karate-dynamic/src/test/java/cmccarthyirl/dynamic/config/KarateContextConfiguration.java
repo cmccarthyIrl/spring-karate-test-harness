@@ -6,7 +6,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @ComponentScan({
-        "cmccarthyirl/dynamic", "cmccarthyirl/server"
+        "cmccarthyirl/dynamic", "cmccarthyirl/common", "cmccarthyirl/server"
 })
 @PropertySource("application.properties")
 public class KarateContextConfiguration {

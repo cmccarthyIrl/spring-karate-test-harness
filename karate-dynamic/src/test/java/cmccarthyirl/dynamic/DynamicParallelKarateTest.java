@@ -8,7 +8,7 @@ import java.util.Objects;
 public class DynamicParallelKarateTest extends AbstractTestDefinition {
 
     @Karate.Test
-    Karate dynamicKarateTestAll() {
-        return Karate.run(Objects.requireNonNull(getClass().getClassLoader().getResource("cmccarthyirl/dynamic")).getPath()).tags("~@ignore");
+    Karate dynamicKarateTest() {
+        return (Karate) Karate.run(Objects.requireNonNull(getClass().getClassLoader().getResource("cmccarthyirl/dynamic")).getPath()).tags("~@ignore");
     }
 }
